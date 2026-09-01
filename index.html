@@ -1,0 +1,735 @@
+<title>Rajkumar Sahoo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap">
+
+<style>
+  :root {
+    --ground:      #e6e8e4;
+    --surface:     #f2f3f0;
+    --surface-2:   #dcdfd9;
+    --ink:         #15181a;
+    --ink-2:       #494f52;
+    --ink-3:       #6f7576;
+    --rule:        #c5c9c2;
+    --rule-soft:   #d5d8d1;
+    --accent:      #2c3a93;
+    --accent-soft: #dfe1f2;
+    --accent-ink:  #26307a;
+    --live:        #1f6b52;
+    --live-soft:   #d8e7df;
+
+    --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --f-body:    "Newsreader", Georgia, "Times New Roman", serif;
+    --f-mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #121416;
+      --surface:     #191c1f;
+      --surface-2:   #22262a;
+      --ink:         #e7e9e5;
+      --ink-2:       #a8aeb0;
+      --ink-3:       #838a8c;
+      --rule:        #2c3136;
+      --rule-soft:   #24282c;
+      --accent:      #98a6f5;
+      --accent-soft: #1e2440;
+      --accent-ink:  #b3bdf9;
+      --live:        #6cc4a1;
+      --live-soft:   #16302a;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #121416;
+    --surface:     #191c1f;
+    --surface-2:   #22262a;
+    --ink:         #e7e9e5;
+    --ink-2:       #a8aeb0;
+    --ink-3:       #838a8c;
+    --rule:        #2c3136;
+    --rule-soft:   #24282c;
+    --accent:      #98a6f5;
+    --accent-soft: #1e2440;
+    --accent-ink:  #b3bdf9;
+    --live:        #6cc4a1;
+    --live-soft:   #16302a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.62;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent-ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- shell ---------- */
+
+  .shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  @media (min-width: 940px) {
+    .shell {
+      grid-template-columns: 268px minmax(0, 1fr);
+      column-gap: 72px;
+      padding: 0 40px 120px;
+    }
+  }
+
+  /* ---------- left rail ---------- */
+
+  .rail { padding: 44px 0 0; }
+
+  @media (min-width: 940px) {
+    .rail {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      padding: 64px 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      border-right: 1px solid var(--rule-soft);
+      margin-right: -36px;
+      padding-right: 36px;
+    }
+  }
+
+  .mark {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .name {
+    font-family: var(--f-display);
+    font-variation-settings: "wdth" 92, "opsz" 40;
+    font-weight: 700;
+    font-size: clamp(30px, 4.4vw, 38px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .role {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    line-height: 1.75;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .role strong { color: var(--ink); font-weight: 500; }
+
+  nav.index { display: none; }
+
+  @media (min-width: 940px) {
+    nav.index {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 4px;
+    }
+    nav.index a {
+      font-family: var(--f-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      border: 0;
+      padding: 5px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    nav.index a span {
+      color: var(--ink-3);
+      font-size: 10px;
+      min-width: 18px;
+    }
+    nav.index a:hover { color: var(--accent-ink); }
+    nav.index a:hover span { color: var(--accent); }
+  }
+
+  .rail-foot {
+    margin-top: auto;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--ink-3);
+  }
+  .rail-foot a { color: var(--ink-2); border-bottom-color: var(--rule); }
+
+  /* ---------- main ---------- */
+
+  main { padding-top: 44px; min-width: 0; }
+  @media (min-width: 940px) { main { padding-top: 64px; } }
+
+  .lede {
+    font-size: clamp(21px, 2.4vw, 25px);
+    line-height: 1.44;
+    font-weight: 300;
+    letter-spacing: -0.011em;
+    margin: 0 0 40px;
+    max-width: 30ch;
+    text-wrap: pretty;
+  }
+  .lede em { font-style: italic; color: var(--accent-ink); }
+
+  section { padding: 40px 0; border-top: 1px solid var(--rule-soft); }
+  section:first-of-type { border-top: 0; padding-top: 0; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .sec-num {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    padding-top: 2px;
+  }
+  h2 {
+    font-family: var(--f-display);
+    font-variation-settings: "wdth" 90, "opsz" 32;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.012em;
+    margin: 0;
+  }
+
+  .prose { max-width: 64ch; }
+  .prose p { margin: 0 0 18px; text-wrap: pretty; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* ---------- research threads ---------- */
+
+  .threads { display: flex; flex-direction: column; gap: 0; max-width: 68ch; }
+
+  .thread {
+    padding: 24px 0;
+    border-top: 1px dotted var(--rule);
+    display: grid;
+    gap: 10px;
+  }
+  .thread:first-child { border-top: 0; padding-top: 4px; }
+
+  .thread h3 {
+    font-family: var(--f-display);
+    font-variation-settings: "wdth" 96, "opsz" 24;
+    font-weight: 600;
+    font-size: 17.5px;
+    letter-spacing: -0.008em;
+    margin: 0;
+    line-height: 1.28;
+  }
+  .thread p { margin: 0; color: var(--ink-2); font-size: 16.5px; }
+  .thread p strong { color: var(--ink); font-weight: 500; }
+
+  .keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    margin-top: 2px;
+  }
+  .key {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    color: var(--ink-3);
+    background: var(--surface);
+    border: 1px solid var(--rule-soft);
+    padding: 3px 7px;
+    border-radius: 2px;
+  }
+
+  /* ---------- work catalogue ---------- */
+
+  .catalogue { display: flex; flex-direction: column; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .entry:first-child { border-top: 0; padding-top: 0; }
+
+  @media (min-width: 720px) {
+    .entry {
+      grid-template-columns: minmax(0, 1fr) 132px;
+      column-gap: 28px;
+      align-items: start;
+    }
+    .entry .status-cell { justify-self: end; text-align: right; padding-top: 3px; }
+  }
+
+  .entry h3 {
+    font-family: var(--f-body);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.34;
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+  .entry .note {
+    margin: 0 0 8px;
+    font-size: 15.5px;
+    color: var(--ink-2);
+    max-width: 58ch;
+  }
+  .meta {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  .status {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    background: var(--surface-2);
+    color: var(--ink-2);
+    border: 1px solid var(--rule-soft);
+  }
+  .status.is-accepted { background: var(--live-soft); color: var(--live); border-color: transparent; }
+  .status.is-active   { background: var(--accent-soft); color: var(--accent-ink); border-color: transparent; }
+
+  /* ---------- diary ---------- */
+
+  .diary { display: flex; flex-direction: column; max-width: 66ch; }
+  .stop {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 6px 20px;
+    padding: 14px 0;
+    border-top: 1px dotted var(--rule);
+  }
+  .stop:first-child { border-top: 0; padding-top: 0; }
+  .stop .when {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stop .what { font-size: 16.5px; line-height: 1.45; }
+  .stop .what span { display: block; font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); margin-top: 3px; letter-spacing: 0.03em; }
+
+  /* ---------- contact ---------- */
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 64ch;
+  }
+  @media (min-width: 620px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+
+  .field .label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .field .value { font-size: 16.5px; line-height: 1.5; }
+  .field .value a { word-break: break-word; }
+
+  .todo {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule-soft);
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    justify-content: space-between;
+  }
+
+  /* ---------- motion ---------- */
+
+  .rise { animation: rise 620ms cubic-bezier(.2,.7,.3,1) both; }
+  .rise:nth-of-type(2) { animation-delay: 60ms; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; }
+    * { scroll-behavior: auto !important; }
+  }
+  html { scroll-behavior: smooth; }
+</style>
+
+<div class="shell">
+
+  <aside class="rail rise">
+    <div>
+      <span class="mark">European University Institute</span>
+      <h1 class="name">Rajkumar<br>Sahoo</h1>
+      <p class="role">
+        <strong>Max Weber Fellow</strong><br>
+        School of Transnational Governance<br>
+        European University Institute<br>
+        Florence, Italy
+      </p>
+    </div>
+
+    <nav class="index">
+      <a href="#about"><span>01</span>About</a>
+      <a href="#research"><span>02</span>Research</a>
+      <a href="#work"><span>03</span>Papers &amp; projects</a>
+      <a href="#calendar"><span>04</span>Talks</a>
+      <a href="#teaching"><span>05</span>Teaching</a>
+      <a href="#contact"><span>06</span>Contact</a>
+    </nav>
+
+    <div class="rail-foot">
+      <a href="mailto:rajkumar.sahoo@eui.eu">rajkumar.sahoo@eui.eu</a><br>
+      <a href="https://www.eui.eu/en/people?id=rajkumar-sahoo">eui.eu profile</a>
+    </div>
+  </aside>
+
+  <main class="rise">
+
+    <p class="lede">
+      Institutional economics in a <em>distributive</em> register: who bears the cost when
+      the rules, or the machines, change.
+    </p>
+
+    <section id="about">
+      <div class="sec-head"><span class="sec-num">01</span><h2>About</h2></div>
+      <div class="prose">
+        <p>
+          I am a Max Weber Fellow at the School of Transnational Governance, European University
+          Institute, Florence. Trained as an interdisciplinary social scientist with a background
+          in law and governance, my doctoral research examined environmental cooperative behaviour
+          as a social norm in India, taking household plastics recycling in urban India as a case
+          for asking whether, and under what conditions, norm-based regulation can govern cleaning
+          behaviour where formal enforcement is thin.
+        </p>
+        <p>
+          That work sits within a broader interest in behavioural public policy and the regulation
+          of behaviour. I am now extending an earlier MPhil engagement with law and technology into
+          questions of repair, the internal-combustion-to-electric-vehicle transition, automation,
+          and blue-collar work, with particular attention to China and its wider consequences.
+        </p>
+        <p>
+          Across these cases the analytical commitments are consistent. Explanations are paired
+          rather than monocausal; outcomes are read as structural outputs of an institutional
+          configuration rather than as the realised intentions of its designers; and the
+          distributional question, who gains capability and who is left holding a skill that no
+          longer clears, is never deferred to a later section. The empirical anchor is India and,
+          more broadly, the Global South.
+        </p>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="sec-head"><span class="sec-num">02</span><h2>Research</h2></div>
+      <div class="threads">
+
+        <article class="thread">
+          <h3>Norm management authority, waste, and caste</h3>
+          <p>
+            Source-segregation compliance in Indian cities is not primarily a behavioural problem
+            solvable by nudges. It is a question of <strong>who holds the authority to manage a
+            norm</strong>, and of the social, specifically caste, conditions under which that
+            authority is granted or denied. Fieldwork in Aurangabad (Chhatrapati Sambhajinagar)
+            sits alongside a five-city comparison of segregation performance against municipal
+            solid-waste financing.
+          </p>
+          <div class="keys"><span class="key">social norms</span><span class="key">caste</span><span class="key">solid waste</span><span class="key">behavioural public policy</span><span class="key">India</span></div>
+        </article>
+
+        <article class="thread">
+          <h3>Repair, tacit skill, and the ICE&nbsp;→&nbsp;EV transition</h3>
+          <p>
+            The move from the internal-combustion engine to the electric vehicle is not a change of
+            propulsion but a change in the human capital beneath the product. The mechanic, the
+            corner parts shop, the second-hand component market and the informal apprenticeship
+            pipeline were not services attached to the vehicle; <strong>they were the
+            institution</strong>. A Delhi repair cluster, Nehru Place, is the site where that
+            dissolution can already be read, and generative AI is run in parallel as the cognitive
+            case of the same mechanism: the machine absorbs the codifiable layer, and value
+            concentrates in the non-codifiable residue.
+          </p>
+          <div class="keys"><span class="key">human capital</span><span class="key">tacit knowledge</span><span class="key">right to repair</span><span class="key">automation</span><span class="key">apprenticeship</span></div>
+        </article>
+
+        <article class="thread">
+          <h3>Institutional sources of industrial capability</h3>
+          <p>
+            China's paradigm succession from mechanical to electronics engineering, visible in the
+            new energy vehicle industry, is treated as the structural output of a specific
+            configuration: <strong>dense agglomeration paired with decentralised competitive market
+            institutions</strong>. The electronics reservoir underwriting NEVs was built through
+            smartphones and consumer durables, which makes the long hybrid governance form between
+            lead firms and Chinese suppliers, neither arm's-length contracting nor vertical
+            integration, the object worth explaining.
+          </p>
+          <div class="keys"><span class="key">China</span><span class="key">innovation systems</span><span class="key">agglomeration</span><span class="key">governance forms</span><span class="key">Williamson</span></div>
+        </article>
+
+        <article class="thread">
+          <h3>Supply-chain governance and the assembly tier</h3>
+          <p>
+            Apple's shift of iPhone production to India is easy to misread as a cheap-labour story.
+            Two paired mechanisms do the work instead: tariff exposure makes the location of final
+            assembly a matter of geopolitical arbitrage, and automation has emptied that tier of the
+            tacit capacity that once made offshoring risky. <strong>Relocation registers as
+            upgrading for the receiving economy while the capability that compounds stays where it
+            was built.</strong>
+          </p>
+          <div class="keys"><span class="key">global value chains</span><span class="key">industrial policy</span><span class="key">India</span><span class="key">trade politics</span></div>
+        </article>
+
+        <article class="thread">
+          <h3>Urban commons and the care of animals</h3>
+          <p>
+            Urbanisation has severed a long-standing relation between households and the animals
+            around them. Restoring it is a matter of civic re-moralisation and the decentralisation
+            of care rather than of further state regulation, which reframes the Indian stray-dog
+            question as a <strong>commons problem</strong> rather than a nuisance-control one, with
+            the municipal cost structure of sterilisation against shelters as the distributive test.
+          </p>
+          <div class="keys"><span class="key">commons</span><span class="key">Ostrom</span><span class="key">animal welfare</span><span class="key">urban governance</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="sec-head"><span class="sec-num">03</span><h2>Papers &amp; projects</h2></div>
+      <div class="catalogue">
+
+        <article class="entry">
+          <div>
+            <h3>The Institutional Foundations of Human Capital under Technological Transition: EVs and AI</h3>
+            <p class="note">
+              Two cases run in parallel rather than in sequence, one material and one cognitive,
+              joined by a single mechanism: the machine absorbs the codifiable layer of a task and
+              value concentrates in the tacit residue.
+            </p>
+            <p class="meta">Workshop paper · MPI / ECONtribute Workshop on Human Capital and Education, Bonn · 1–2 October 2026</p>
+          </div>
+          <div class="status-cell"><span class="status is-accepted">Accepted</span></div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>From Smartphones to New Energy Vehicles: Decentralised Agglomeration and the Institutional Economics of China's Paradigm Succession</h3>
+            <p class="note">
+              What China's shift from mechanical to electronics engineering reveals about the
+              institutional sources of innovation capability, and about its reach beyond the
+              dominant industrial economies.
+            </p>
+            <p class="meta">Working paper · 2026</p>
+          </div>
+          <div class="status-cell"><span class="status">Working paper</span></div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Norm Management Authority and the Limits of the Nudge: Source Segregation in Indian Cities</h3>
+            <p class="note">
+              Fieldwork in Aurangabad with a five-city comparison (Indore, Pune, Surat, Aurangabad,
+              Delhi) of segregation compliance against solid-waste financing, arguing that caste
+              conditions who may enforce a cleaning norm at all.
+            </p>
+            <p class="meta">Manuscript · behavioural public policy</p>
+          </div>
+          <div class="status-cell"><span class="status is-active">In revision</span></div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Institutional Adaptation under Architectural Transition</h3>
+            <p class="note">
+              When the stress on a society's institutions arrives through a material architectural
+              transformation rather than a political decision, what does adaptation mean, and how
+              much can it actually do? A comparative institutional essay on the displacement of a
+              decentralised mobility order by a centralised one.
+            </p>
+            <p class="meta">Essay in preparation · Mercatus Center Resilient Societies Grant 2026</p>
+          </div>
+          <div class="status-cell"><span class="status is-active">In preparation</span></div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>The Apple Logic: Governing the Chain by Offshoring the Assembly Tier</h3>
+            <p class="note">
+              iPhone assembly in India as the paradigm case of a governance form that is easy to
+              misread: trade-political arbitrage and architectural de-skilling working as a pair.
+            </p>
+            <p class="meta">Project in development · 2026–</p>
+          </div>
+          <div class="status-cell"><span class="status">In development</span></div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Urban Animal Care as a Commons</h3>
+            <p class="note">
+              The August 2025 Supreme Court stray-dog order read against the municipal economics of
+              sterilisation and shelter provision, and against the longer arc from agrarian to urban
+              human–animal relations.
+            </p>
+            <p class="meta">Article in preparation · India</p>
+          </div>
+          <div class="status-cell"><span class="status is-active">In preparation</span></div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Europe's Climate Retreat, Labour Geography, and the Chinese EV</h3>
+            <p class="note">
+              The perception-and-security barrier to Chinese EV entry as a structural output of
+              incumbent brand dominance, with the Apple-to-Xiaomi consumer-electronics sequence read
+              as the closest available natural experiment.
+            </p>
+            <p class="meta">Working paper · Green Trade Lab 2026</p>
+          </div>
+          <div class="status-cell"><span class="status">Working paper</span></div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Caste, Recycling, and the Distribution of Cleaning Work</h3>
+            <p class="note">
+              Who is expected to handle waste, and what that expectation does to the feasibility of
+              norm-based environmental regulation.
+            </p>
+            <p class="meta">Working paper · India</p>
+          </div>
+          <div class="status-cell"><span class="status">Working paper</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="calendar">
+      <div class="sec-head"><span class="sec-num">04</span><h2>Talks &amp; convenings</h2></div>
+      <div class="diary">
+        <div class="stop">
+          <div class="when">Oct 2026</div>
+          <div class="what">Human capital under technological transition
+            <span>MPI / ECONtribute Workshop on Human Capital and Education · Bonn</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="when">Oct 2026</div>
+          <div class="what">EUI–MPI Conference
+            <span>Munich</span>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="when">2026</div>
+          <div class="what">Green Trade Lab
+            <span>Climate policy, trade, and the electric-vehicle transition</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="sec-head"><span class="sec-num">05</span><h2>Teaching &amp; supervision</h2></div>
+      <div class="prose">
+        <p>
+          I hold a teaching certificate from the European University Institute and serve as a
+          thesis evaluator for the School of Transnational Governance MA programme. I welcome
+          supervision and reading-group conversations on behavioural public policy, institutional
+          economics, the political economy of technological transition, and qualitative fieldwork
+          in South Asian cities.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sec-head"><span class="sec-num">06</span><h2>Contact</h2></div>
+      <div class="contact-grid">
+        <div class="field">
+          <span class="label">Email</span>
+          <div class="value"><a href="mailto:rajkumar.sahoo@eui.eu">rajkumar.sahoo@eui.eu</a></div>
+        </div>
+        <div class="field">
+          <span class="label">Institutional page</span>
+          <div class="value"><a href="https://www.eui.eu/en/people?id=rajkumar-sahoo">eui.eu profile</a></div>
+        </div>
+        <div class="field">
+          <span class="label">Post</span>
+          <div class="value">
+            School of Transnational Governance<br>
+            European University Institute<br>
+            Via Boccaccio 121, 50133 Florence, Italy
+          </div>
+        </div>
+        <div class="field">
+          <span class="label">ORCID</span>
+          <div class="value"><span class="todo">to be added</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Rajkumar Sahoo · Florence</span>
+      <span>Updated September 2026</span>
+    </footer>
+
+  </main>
+</div>
