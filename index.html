@@ -114,6 +114,16 @@
     }
   }
 
+  .portrait {
+    display: block;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--rule-soft);
+    margin-bottom: 18px;
+  }
+
   .mark {
     font-family: var(--f-mono);
     font-size: 10px;
@@ -419,6 +429,7 @@
 
   <aside class="rail rise">
     <div>
+      <img class="portrait" src="headshot.jpg" alt="Rajkumar Sahoo" width="96" height="96">
       <span class="mark">European University Institute</span>
       <h1 class="name">Rajkumar<br>Sahoo</h1>
       <p class="role">
@@ -440,7 +451,8 @@
 
     <div class="rail-foot">
       <a href="mailto:rajkumar.sahoo@eui.eu">rajkumar.sahoo@eui.eu</a><br>
-      <a href="https://www.eui.eu/en/people?id=rajkumar-sahoo">eui.eu profile</a>
+      <a href="https://www.eui.eu/en/people?id=rajkumar-sahoo">eui.eu profile</a><br>
+      <a href="https://orcid.org/0000-0002-5478-2656">ORCID</a>
     </div>
   </aside>
 
@@ -721,7 +733,7 @@
         </div>
         <div class="field">
           <span class="label">ORCID</span>
-          <div class="value"><span class="todo">to be added</span></div>
+          <div class="value"><a href="https://orcid.org/0000-0002-5478-2656">0000-0002-5478-2656</a></div>
         </div>
       </div>
     </section>
